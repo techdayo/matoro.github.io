@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"></meta>
+        <title>startpage</title>
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
+        <script src="js/main.js" type="text/javascript"></script>
+
+        <!-- The remote service used for IP data is ipify. -->
+        <!-- It is MIT-licensed, source code can be found at https://github.com/rdegges/ipify-api -->
+        <script src="https://api.ipify.org/?format=jsonp&callback=populate_ipbox" defer async></script>
+
+        <!-- The remote service used for weather data is Yahoo APIs. -->
+        <!-- Limited to 2000 calls per day. -->
+        <!-- To change your location, just change the "text" parameter in the YQL query. -->
+        <script src="https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='waco, tx')&format=json&callback=populate_weatherbox" defer async></script>
+
+        <!-- The remote service used for tor checking is documented at https://stackoverflow.com/a/33996904 -->
+        <!-- According to the creator: "I also plan on keeping that URL active for as long as possible - but make no guarantees of availability, reliability, or that it will stay up for years." -->
+        <script src="https://openinternet.io/tor/istor.js" defer async></script>
+    </head>
+    <body onload="load_dynamic_content()">
+        <div class="main-container">
+            <div class="mainbox">
+                <div class="timebox">
+                    <p id="timeprompt"></p>&nbsp;<p id="timetext"></p>
+                </div>
+                <br>
+                <div class="ipbox">
+                    <p id="ipprompt"></p>&nbsp;<p id="iptext"></p>
+                </div>
+                <br>
+                <div class="torbox">
+                    <p id="torprompt"></p>&nbsp;<p id="tortext"></p>
+                </div>
+                <br>
+                <div class="weatherbox">
+                    <p id="weatherprompt"></p>&nbsp;<p id="weathertext"></p>
+                </div>
+                <br>
+                <div class="linkbox">
+                    <p id="linkprompt"></p>&nbsp;
+                    <br>
+                    <table id="linktable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <div class="searchbox">
+                    <p id="searchprompt"></p>&nbsp;<p id="searchtext"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

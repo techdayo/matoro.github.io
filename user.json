@@ -1,0 +1,141 @@
+{
+    "boxes":
+    {
+        "timebox":
+        {
+            "prompt": "time >> ",
+            "timezone": -5
+        },
+        "ipbox":
+        {
+            "prompt": "ip >> "
+        },
+        "torbox":
+        {
+            "prompt": "tor >> ",
+            "enabled": "yes",
+            "disabled": "no"
+        },
+        "weatherbox":
+        {
+            "prompt": "weather >> "
+        },
+        "linkbox":
+        {
+            "prompt": "links >> ",
+            "groups":
+            [
+                {
+                    "group": "main",
+                    "links":
+                    [
+                        {
+                            "title": "funnyjunk",
+                            "url": "https://funnyjunk.com"
+                        },
+                        {
+                            "title": "mal panel",
+                            "url": "https://myanimelist.net"
+                        },
+                        {
+                            "title": "canvas",
+                            "url": "https://baylor.instructure.com"
+                        },
+                        {
+                            "title": "ycombinator",
+                            "url": "https://news.ycombinator.com"
+                        },
+                        {
+                            "title": "tumblr",
+                            "url": "https://tumblr.com"
+                        }
+                    ]
+                },
+                {
+                    "group": "imageboards",
+                    "links":
+                    [
+                        {
+                            "title": "4ch/a/",
+                            "url": "https://boards.4chan.org/a/"
+                        },
+                        {
+                            "title": "4ch/g/",
+                            "url": "https://boards.4chan.org/g/"
+                        },
+                        {
+                            "title": "4ch/r9k/",
+                            "url": "https://boards.4chan.org/r9k/"
+                        },
+                        {
+                            "title": "8ch/tech/",
+                            "url": "https://8ch.net/tech/"
+                        },
+                        {
+                            "title": "lain/tech/",
+                            "url": "https://lainchan.org/tech/"
+                        }
+                    ]
+                },
+                {
+                    "group": "trackers",
+                    "links":
+                    [
+                        {
+                            "title": "ab",
+                            "url": "https://animebytes.tv"
+                        },
+                        {
+                            "title": "nyaa",
+                            "url": "https://nyaa.pantsu.cat"
+                        },
+                        {
+                            "title": "libble",
+                            "url": "https://libble.me"
+                        },
+                        {
+                            "title": "rutracker",
+                            "url": "https://rutracker.org"
+                        },
+                        {
+                            "title": "laintracker",
+                            "url": "https://laintracker.org"
+                        }
+                    ]
+                },
+                {
+                    "group": "tech",
+                    "links":
+                    [
+                        {
+                            "title": "arch wiki",
+                            "url": "https://wiki.archlinux.org"
+                        },
+                        {
+                            "title": "distrowatch",
+                            "url": "https://distrowatch.com"
+                        },
+                        {
+                            "title": "github",
+                            "url": "https://github.com"
+                        },
+                        {
+                            "title": "mixtape",
+                            "url": "https://mixtape.moe"
+                        },
+                        {
+                            "title": "html-xml-utils",
+                            "url": "https://www.w3.org/Tools/HTML-XML-utils"
+                        }
+                    ]
+                }
+            ]
+        },
+        "searchbox":
+        {
+            "prompt": "search >> ",
+            "action": "https://duckduckgo.com",
+            "param": "q"
+        }
+    }
+}
