@@ -29,6 +29,8 @@ function process_user_configuration(configdata)
     populate_linkbox(configdata.boxes.linkbox);
     populate_searchbox(configdata.boxes.searchbox);
     window.setInterval(populate_timebox, 1000);
+
+    load_remote_services();
 }
 
 function populate_timebox()
@@ -98,4 +100,26 @@ function populate_searchbox(searchdata)
     form.appendChild(input);
     document.getElementById("searchtext").replaceWith(form);
     document.getElementById("searchinput").focus();
+}
+
+function load_remote_services()
+{
+    //The remote service used for IP data is ipify.
+    //It is MIT-licensed, source code can be found at https://github.com/rdegges/ipify-api
+    var remote_service_ip = document.createElement("script");
+    remote_service_ip.setAttribute("src", "https://api.ipify.org/?format=jsonp&callback=populate_ipbox");
+    document.head.appendChild(remote_service_ip);
+
+    //The remote service used for tor checking is documented at https://stackoverflow.com/a/33996904
+    //According to the creator: "I also plan on keeping that URL active for as long as possible - but make no guarantees of availability, reliability, or that it will stay up for years."
+    var remote_service_tor = document.createElement("script");
+    remote_service_tor.setAttribute("src", "https://openinternet.io/tor/istor.js")
+    document.head.appendChild(remote_service_tor);
+
+    //Thre remote service used for weather data is Yahoo APIs.
+    //Limited to 2000 calls per day.
+    //To change your location, just change the "text" parameter in the YQL query.
+    var remote_service_weather = document.createElement("script");
+    remote_service_weather.setAttribute("src", "https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='waco, tx')&format=json&callback=populate_weatherbox");
+    document.head.appendChild(remote_service_weather);
 }
