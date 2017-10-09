@@ -41,15 +41,15 @@
 
         <!-- The remote service used for IP data is ipify. -->
         <!-- It is MIT-licensed, source code can be found at https://github.com/rdegges/ipify-api -->
-        <script src="https://api.ipify.org/?format=jsonp&callback=populate_ipbox" defer async></script>
+        <script src="https://api.ipify.org/?format=jsonp&callback=populate_ipbox" defer></script>
 
         <!-- The remote service used for weather data is Yahoo APIs. -->
         <!-- Limited to 2000 calls per day. -->
         <!-- To change your location, just change the "text" parameter in the YQL query. -->
-        <script src="https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='waco, tx')&format=json&callback=populate_weatherbox" defer async></script>
+        <script src="https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='waco, tx')&format=json&callback=populate_weatherbox" defer></script>
 
         <!-- The remote service used for tor checking is documented at https://stackoverflow.com/a/33996904 -->
         <!-- According to the creator: "I also plan on keeping that URL active for as long as possible - but make no guarantees of availability, reliability, or that it will stay up for years." -->
-        <script src="https://openinternet.io/tor/istor.js" defer async></script>
+        <script src="https://openinternet.io/tor/istor.js" defer></script>
     </body>
 </html>
