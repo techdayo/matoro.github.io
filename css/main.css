@@ -1,3 +1,8 @@
+body
+{
+    font-family: monospace;
+}
+
 .main-container
 {
     width: 100%;
@@ -22,7 +27,7 @@
 
 form
 {
-    height: 50%;
+    height: 2em;
     margin: auto;
     display: inherit;
 }
@@ -35,5 +40,6 @@ table
 
 td
 {
-    width: 50%;
+    /* max-width: 100%; */
+    white-space: nowrap;
 }
