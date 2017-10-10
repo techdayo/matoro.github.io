@@ -17,15 +17,25 @@ function load_dynamic_content()
 function process_user_configuration(configdata)
 {
     global_configdata = configdata;
+
     document.getElementById("timeprompt").textContent = configdata.boxes.timebox.prompt;
+    document.getElementById("timetext").textContent = configdata.placeholder;
+
     document.getElementById("ipprompt").textContent = configdata.boxes.ipbox.prompt;
+    document.getElementById("iptext").textContent = configdata.placeholder;
+
     document.getElementById("torprompt").textContent = configdata.boxes.torbox.prompt;
+    document.getElementById("tortext").textContent = configdata.placeholder;
+
     document.getElementById("weatherprompt").textContent = configdata.boxes.weatherbox.prompt;
+    document.getElementById("weathertext").textContent = configdata.placeholder;
+
     document.getElementById("linkprompt").textContent = configdata.boxes.linkbox.prompt;
+
     document.getElementById("searchprompt").textContent = configdata.boxes.searchbox.prompt;
+    document.getElementById("searchtext").textContent = configdata.placeholder;
 
     populate_timebox();
-    populate_torbox(configdata.boxes.torbox);
     populate_linkbox(configdata.boxes.linkbox);
     populate_searchbox(configdata.boxes.searchbox);
     window.setInterval(populate_timebox, 1000);
@@ -52,11 +62,11 @@ function populate_ipbox(ipdata)
 
 function populate_torbox(tordata)
 {
-    if(typeof window._isTor != 'undefined' && window._isTor == true)
+    if(window._isTor == true)
     {
         document.getElementById("tortext").textContent = tordata.enabled;
     }
-    else
+    else if(window._isTor == false)
     {
         document.getElementById("tortext").textContent = tordata.disabled;
     }
@@ -102,6 +112,9 @@ function populate_searchbox(searchdata)
     document.getElementById("searchinput").focus();
 }
 
+//The following function is used to load remote services not hosted on the same domain.
+//To disable a particular remote service, simply comment out the block of lines which dynamically load its script.
+//The text on the page will continue to display the contents of the "placeholder" string from your user.json file.
 function load_remote_services()
 {
     //The remote service used for IP data is ipify.
@@ -115,6 +128,7 @@ function load_remote_services()
     var remote_service_tor = document.createElement("script");
     remote_service_tor.setAttribute("src", "https://openinternet.io/tor/istor.js")
     document.head.appendChild(remote_service_tor);
+    populate_torbox(global_configdata.boxes.torbox);
 
     //Thre remote service used for weather data is Yahoo APIs.
     //Limited to 2000 calls per day.
