@@ -19,7 +19,8 @@
         },
         "weatherbox":
         {
-            "prompt": "weather >> "
+            "prompt": "weather >> ",
+            "geo": "waco, tx"
         },
         "linkbox":
         {

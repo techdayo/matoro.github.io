@@ -57,18 +57,18 @@ function format_date_for_timebox(date)
 
 function populate_ipbox(ipdata)
 {
-    document.getElementById("iptext").textContent = ipdata.ip;
+    document.getElementById("iptext").textContent = ipdata;
 }
 
 function populate_torbox(tordata)
 {
-    if(window._isTor == true)
+    if(tordata)
     {
-        document.getElementById("tortext").textContent = tordata.enabled;
+        document.getElementById("tortext").textContent = global_configdata.boxes.torbox.enabled;
     }
-    else if(window._isTor == false)
+    else
     {
-        document.getElementById("tortext").textContent = tordata.disabled;
+        document.getElementById("tortext").textContent = global_configdata.boxes.torbox.disabled;
     }
 }
 
@@ -117,23 +117,33 @@ function populate_searchbox(searchdata)
 //The text on the page will continue to display the contents of the "placeholder" string from your user.json file.
 function load_remote_services()
 {
-    //The remote service used for IP data is ipify.
-    //It is MIT-licensed, source code can be found at https://github.com/rdegges/ipify-api
+    //Remote service:  GlobaLeaks
+    //Populates:       ipbox, torbox
+    //Rate limit:      Not specified
+    //Documentation:   https://github.com/globaleaks/Tor2web/wiki/CheckTor
     var remote_service_ip = document.createElement("script");
-    remote_service_ip.setAttribute("src", "https://api.ipify.org/?format=jsonp&callback=populate_ipbox");
+    remote_service_ip.setAttribute("type", "application/javascript");
+    remote_service_ip.text = " \
+        var remote_request_ip = new XMLHttpRequest();\n \
+        remote_request_ip.onreadystatechange = function()\n \
+        {\n \
+            if(this.readyState == 4 && this.status == 200)\n \
+            {\n \
+                populate_ipbox((JSON.parse(this.responseText)).IP);\n \
+                populate_torbox((JSON.parse(this.responseText)).IsTor);\n \
+            }\n \
+        };\n \
+        remote_request_ip.overrideMimeType(\"application/json\");\n \
+        remote_request_ip.open(\"GET\", \"https://demo.globaleaks.org/checktor\", true);\n \
+        remote_request_ip.send();";
     document.head.appendChild(remote_service_ip);
-
-    //The remote service used for tor checking is documented at https://stackoverflow.com/a/33996904
-    //According to the creator: "I also plan on keeping that URL active for as long as possible - but make no guarantees of availability, reliability, or that it will stay up for years."
-    var remote_service_tor = document.createElement("script");
-    remote_service_tor.setAttribute("src", "https://openinternet.io/tor/istor.js")
-    document.head.appendChild(remote_service_tor);
-    populate_torbox(global_configdata.boxes.torbox);
-
-    //Thre remote service used for weather data is Yahoo APIs.
-    //Limited to 2000 calls per day.
-    //To change your location, just change the "text" parameter in the YQL query.
+    
+    //Remote service:  Yahoo Weather
+    //Populates:       weatherbox
+    //Rate limit:      2000 calls/day
+    //Documentation:   https://developer.yahoo.com/weather/
     var remote_service_weather = document.createElement("script");
-    remote_service_weather.setAttribute("src", "https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='waco, tx')&format=json&callback=populate_weatherbox");
+    remote_service_weather.setAttribute("type", "application/javascript");
+    remote_service_weather.setAttribute("src", "https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + global_configdata.boxes.weatherbox.geo + "')&format=json&callback=populate_weatherbox");
     document.head.appendChild(remote_service_weather);
 }
