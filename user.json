@@ -22,6 +22,11 @@
             "prompt": "weather >> ",
             "geo": "waco, tx"
         },
+        "newsbox":
+        {
+            "prompt": "news >> ",
+            "stories": 5
+        },
         "linkbox":
         {
             "prompt": "links >> ",

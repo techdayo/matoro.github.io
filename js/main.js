@@ -30,6 +30,8 @@ function process_user_configuration(configdata)
     document.getElementById("weatherprompt").textContent = configdata.boxes.weatherbox.prompt;
     document.getElementById("weathertext").textContent = configdata.placeholder;
 
+    document.getElementById("newsprompt").textContent = configdata.boxes.newsbox.prompt;
+
     document.getElementById("linkprompt").textContent = configdata.boxes.linkbox.prompt;
 
     document.getElementById("searchprompt").textContent = configdata.boxes.searchbox.prompt;
@@ -75,6 +77,18 @@ function populate_torbox(tordata)
 function populate_weatherbox(weatherdata)
 {
     document.getElementById("weathertext").textContent = weatherdata.query.results.channel.item.condition.text + ", " + weatherdata.query.results.channel.item.condition.temp + " degrees";
+}
+
+function populate_newsbox(newsdata)
+{
+    var tr = document.createElement("tr");
+    var cell = document.createElement("td");
+    var story = document.createElement("a");
+    story.appendChild(document.createTextNode(newsdata.title));
+    story.setAttribute("href", newsdata.url);
+    cell.appendChild(story);
+    tr.appendChild(cell);
+    document.getElementById("newstable").getElementsByTagName("tbody")[0].appendChild(tr);
 }
 
 function populate_linkbox(linkdata)
@@ -146,4 +160,37 @@ function load_remote_services()
     remote_service_weather.setAttribute("type", "application/javascript");
     remote_service_weather.setAttribute("src", "https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + global_configdata.boxes.weatherbox.geo + "')&format=json&callback=populate_weatherbox");
     document.head.appendChild(remote_service_weather);
+
+    //Remote service:  Hacker News
+    //Populates:       newsbox
+    //Rate limit:      Not specified
+    //Documentation:   https://github.com/HackerNews/API
+    var remote_service_news = document.createElement("script");
+    remote_service_news.setAttribute("type", "application/javascript");
+    remote_service_news.text = " \
+        var remote_request_news = new XMLHttpRequest();\n \
+        remote_request_news.onreadystatechange = function()\n \
+        {\n \
+            if(this.readyState == 4 && this.status == 200)\n \
+            {\n \
+                var remote_request_news_items = [];\n \
+                for(var ticker = 0; ticker < Math.min((JSON.parse(this.responseText)).length, global_configdata.boxes.newsbox.stories); ticker++)\n \
+                {\n \
+                    remote_request_news_items.push(new XMLHttpRequest());\n \
+                    remote_request_news_items[ticker].onreadystatechange = function()\n \
+                    {\n \
+                        if(this.readyState == 4 && this.status == 200)\n \
+                        {\n \
+                            populate_newsbox(JSON.parse(this.responseText));\n \
+                        }\n \
+                    };\n \
+                    remote_request_news_items[ticker].overrideMimeType(\"application/json\");\n \
+                    remote_request_news_items[ticker].open(\"GET\", \"https://hacker-news.firebaseio.com/v0/item/\" + (JSON.parse(this.responseText))[ticker] \+ \".json\", true);\n \
+                    remote_request_news_items[ticker].send();\n \
+                }\n \
+            }\n \
+        };\n \
+        remote_request_news.open(\"GET\", \"https://hacker-news.firebaseio.com/v0/topstories.json\", true);\n \
+        remote_request_news.send();";
+    document.head.appendChild(remote_service_news);
 }

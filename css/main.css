@@ -19,9 +19,10 @@ body
     align-items: center;
 }
 
-.timebox, .ipbox, .torbox, .weatherbox, .linkbox, .searchbox
+.timebox, .ipbox, .torbox, .weatherbox, .newsbox, .linkbox, .searchbox
 {
     display: flex;
+    margin: 8px;
 }
 
 form
