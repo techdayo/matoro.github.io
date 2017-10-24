@@ -131,7 +131,7 @@ function populate_searchbox(searchdata)
 //The text on the page will continue to display the contents of the "placeholder" string from your user.json file.
 function load_remote_services()
 {
-    //Remote service:  GlobaLeaks
+    //Remote service:  onion.link
     //Populates:       ipbox, torbox
     //Rate limit:      Not specified
     //Documentation:   https://github.com/globaleaks/Tor2web/wiki/CheckTor
@@ -148,7 +148,7 @@ function load_remote_services()
             }\n \
         };\n \
         remote_request_ip.overrideMimeType(\"application/json\");\n \
-        remote_request_ip.open(\"GET\", \"https://demo.globaleaks.org/checktor\", true);\n \
+        remote_request_ip.open(\"GET\", \"https://onion.link/checktor\", true);\n \
         remote_request_ip.send();";
     document.head.appendChild(remote_service_ip);
     
@@ -193,4 +193,11 @@ function load_remote_services()
         remote_request_news.open(\"GET\", \"https://hacker-news.firebaseio.com/v0/topstories.json\", true);\n \
         remote_request_news.send();";
     document.head.appendChild(remote_service_news);
+
+    /*
+    var remote_service_stocks = document.createElement("script")
+    remote_service_stocks.setAttribute("type", "application/javascript");
+    remote_service_stocks.setAttribute("src", "http://widgets.macroaxis.com/widgets/url.jsp?t=42");
+    document.head.appendChild(remote_service_stocks);
+    */
 }
