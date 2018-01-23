@@ -1,0 +1,140 @@
+{
+    "placeholder": " [ loading... ] ",
+    "boxes":
+    {
+        "timebox":
+        {
+            "prompt": "time >> ",
+            "timezone": -5
+        },
+        "ipbox":
+        {
+            "prompt": "ip >> "
+        },
+        "torbox":
+        {
+            "prompt": "tor >> ",
+            "enabled": "yes",
+            "disabled": "no"
+        },
+        "weatherbox":
+        {
+            "prompt": "weather >> ",
+            "geo": "atlanta, ga"
+        },
+        "newsbox":
+        {
+            "prompt": "news >> ",
+            "stories": 5
+        },
+        "linkbox":
+        {
+            "prompt": "links >> ",
+            "groups":
+            [
+                {
+                    "group": "tools",
+                    "links":
+                    [
+                        {
+                            "title": "qradar",
+                            "url": "https://qradar.delta.com/console/qradar/jsp/QRadar.jsp"
+                        },
+                        {
+                            "title": "fireeye-hx",
+                            "url": "https://10.68.233.224:3000/login/login?return_url=%2Fhx%2Fdashboard\"
+                        },
+                        {
+                            "title": "cylance",
+                            "url": "https://protect.cylance.com/Threats"
+                        },
+                        {
+                            "title": "palo-alto",
+                            "url": "https://papanrcc3p01.delta.com/php/login.php"
+                        },
+                        {
+                            "title": "bit9",
+                            "url": "https://bit9.delta.com/login.php?oldURL=dashboard.php"
+                        }
+                    ]
+                },
+                {
+                    "group": "moretools",
+                    "links":
+                    [
+                        {
+                            "title": "expel-slack",
+                            "url": "https://expel-io.slack.com/messages/G82488LKZ/"
+                        },
+                        {
+                            "title": "expel-workbench",
+                            "url": "https://workbench.expel.io/dashboards/situation-report"
+                        },
+                        {
+                            "title": "urlfiltering",
+                            "url": "https://urlfiltering.paloaltonetworks.com/"
+                        },
+                        {
+                            "title": "phishtank",
+                            "url": "https://phishtank.com/"
+                        },
+                        {
+                            "title": "https://urlscan.io/",
+                            "url": "urlscan"
+                        }
+                    ]
+                },
+                {
+                    "group": "corporate",
+                    "links":
+                    [
+                        {
+                            "title": "deltanet",
+                            "url": "https://deltaairlines.sharepoint.com/?wa=wsignin1.0"
+                        },
+                        {
+                            "title": "servicenow",
+                            "url": "https://deltasn.service-now.com/nav_to.do?uri=%2Fhome_splash.do%3Fsysparm_direct%3Dtrue"
+                        },
+                        {
+                            "title": "ppm",
+                            "url": "https://ppm-prd.delta.com/itg/dashboard/app/portal/PageView.jsp"
+                        },
+                        {
+                            "title": "ctu-sharepoint",
+                            "url": "https://deltaairlines.sharepoint.com/sites/DL000006/Teams/CTU/SitePages/Home.aspx"
+                        }
+                    ]
+                },
+                {
+                    "group": "tech",
+                    "links":
+                    [
+                        {
+                            "title": "arch wiki",
+                            "url": "https://wiki.archlinux.org"
+                        },
+                        {
+                            "title": "distrowatch",
+                            "url": "https://distrowatch.com"
+                        },
+                        {
+                            "title": "github",
+                            "url": "https://github.com"
+                        },
+                        {
+                            "title": "mixtape",
+                            "url": "https://mixtape.moe"
+                        }
+                    ]
+                }
+            ]
+        },
+        "searchbox":
+        {
+            "prompt": "search >> ",
+            "action": "https://duckduckgo.com",
+            "param": "q"
+        }
+    }
+}
