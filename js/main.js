@@ -10,7 +10,14 @@ function load_dynamic_content()
             process_user_configuration(JSON.parse(this.responseText));
         }
     };
-    config_request.open("GET", "user.json", true);
+    if(window.location.search.split("?").length <= 1)
+    {
+        config_request.open("GET", "user.json", true);
+    }
+    else
+    {
+        config_request.open("GET", window.location.search.split("?")[1] + ".json", true);
+    }
     config_request.send();
 }
 
