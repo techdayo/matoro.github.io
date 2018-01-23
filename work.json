@@ -79,8 +79,8 @@
                             "url": "https://phishtank.com/"
                         },
                         {
-                            "title": "https://urlscan.io/",
-                            "url": "urlscan"
+                            "title": "urlscan",
+                            "url": "https://urlscan.io/"
                         }
                     ]
                 },
@@ -103,6 +103,10 @@
                         {
                             "title": "ctu-sharepoint",
                             "url": "https://deltaairlines.sharepoint.com/sites/DL000006/Teams/CTU/SitePages/Home.aspx"
+                        },
+                        {
+                            "title": "email",
+                            "url": "https://apps.delta.com/,DanaInfo=myemail.delta.com,SSL+owa"
                         }
                     ]
                 },
@@ -125,6 +129,10 @@
                         {
                             "title": "mixtape",
                             "url": "https://mixtape.moe"
+                        },
+                        {
+                            "title": "ycombinator",
+                            "url": "https://news.ycombinator.com"
                         }
                     ]
                 }
