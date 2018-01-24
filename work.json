@@ -42,7 +42,7 @@
                         },
                         {
                             "title": "fireeye-hx",
-                            "url": "https://10.68.233.224:3000/login/login?return_url=%2Fhx%2Fdashboard"
+                            "url": "https://hx.delta.com:3000"
                         },
                         {
                             "title": "cylance",
