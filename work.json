@@ -33,54 +33,80 @@
             "groups":
             [
                 {
-                    "group": "tools",
+                    "group": "siem",
                     "links":
                     [
                         {
                             "title": "qradar",
-                            "url": "https://qradar.delta.com/console/qradar/jsp/QRadar.jsp"
+                            "url": "https://qradar.delta.com/"
                         },
                         {
                             "title": "fireeye-hx",
-                            "url": "https://hx.delta.com:3000"
+                            "url": "https://hx.delta.com:3000/"
+                        },
+                        {
+                            "title": "fireeye-nx",
+                            "url": "https://atlr-feyecms-001.delta.com/"
                         },
                         {
                             "title": "cylance",
-                            "url": "https://protect.cylance.com/Threats"
+                            "url": "https://protect.cylance.com/"
                         },
                         {
                             "title": "palo-alto",
-                            "url": "https://papanrcc3p01.delta.com/php/login.php"
+                            "url": "https://papanrcc3p01.delta.com/"
                         },
                         {
-                            "title": "bit9",
-                            "url": "https://bit9.delta.com/login.php?oldURL=dashboard.php"
+                            "title": "exabeam",
+                            "url": "https://10.67.88.31:8484/"
+                        },
+                        {
+                            "title": "o365",
+                            "url": "https://protection.office.com/"
                         }
                     ]
                 },
                 {
-                    "group": "moretools",
+                    "group": "analysis",
                     "links":
                     [
                         {
-                            "title": "expel-slack",
-                            "url": "https://expel-io.slack.com/messages/G82488LKZ/"
-                        },
-                        {
-                            "title": "expel-workbench",
-                            "url": "https://workbench.expel.io/dashboards/situation-report"
-                        },
-                        {
-                            "title": "urlfiltering",
-                            "url": "https://urlfiltering.paloaltonetworks.com/"
-                        },
-                        {
-                            "title": "phishtank",
-                            "url": "https://phishtank.com/"
+                            "title": "expel",
+                            "url": "https://workbench.expel.io/"
                         },
                         {
                             "title": "urlscan",
                             "url": "https://urlscan.io/"
+                        },
+                        {
+                            "title": "x-force",
+                            "url": "https://exchange.xforce.ibmcloud.com/"
+                        },
+                        {
+                            "title": "censys",
+                            "url": "https://censys.io/"
+                        },
+                        {
+                            "title": "ports",
+                            "url": "https://www.speedguide.net/port.php?port=0"
+                        }
+                    ]
+                },
+                {
+                    "group": "intel",
+                    "links":
+                    [
+                        {
+                            "title": "anomali",
+                            "url": "https://ui.threatstream.com/"
+                        },
+                        {
+                            "title": "autofocus",
+                            "url": "https://autofocus.paloaltonetworks.com/"
+                        },
+                        {
+                            "title": "crowdstrike",
+                            "url": "https://falcon.crowdstrike.com/"
                         }
                     ]
                 },
@@ -90,49 +116,45 @@
                     [
                         {
                             "title": "deltanet",
-                            "url": "https://deltaairlines.sharepoint.com/?wa=wsignin1.0"
+                            "url": "https://deltaairlines.sharepoint.com/"
                         },
                         {
                             "title": "servicenow",
-                            "url": "https://deltasn.service-now.com/nav_to.do?uri=%2Fhome_splash.do%3Fsysparm_direct%3Dtrue"
+                            "url": "https://deltasn.service-now.com/"
                         },
                         {
                             "title": "ppm",
-                            "url": "https://ppm-prd.delta.com/itg/dashboard/app/portal/PageView.jsp"
+                            "url": "https://ppm-prd.delta.com/"
                         },
                         {
-                            "title": "ctu-sharepoint",
-                            "url": "https://deltaairlines.sharepoint.com/sites/DL000006/Teams/CTU/SitePages/Home.aspx"
-                        },
-                        {
-                            "title": "email",
-                            "url": "https://apps.delta.com/,DanaInfo=myemail.delta.com,SSL+owa"
+                            "title": "owa",
+                            "url": "https://myemail.delta.com/"
                         }
                     ]
                 },
                 {
-                    "group": "tech",
+                    "group": "misc",
                     "links":
                     [
                         {
                             "title": "arch wiki",
-                            "url": "https://wiki.archlinux.org"
-                        },
-                        {
-                            "title": "distrowatch",
-                            "url": "https://distrowatch.com"
+                            "url": "https://wiki.archlinux.org/"
                         },
                         {
                             "title": "github",
-                            "url": "https://github.com"
+                            "url": "https://github.com/"
                         },
                         {
                             "title": "mixtape",
-                            "url": "https://mixtape.moe"
+                            "url": "https://mixtape.moe/"
+                        },
+                        {
+                            "title": "lainchan",
+                            "url": "https://lainchan.org/sec/"
                         },
                         {
                             "title": "ycombinator",
-                            "url": "https://news.ycombinator.com"
+                            "url": "https://hckrnews.com/"
                         }
                     ]
                 }
